@@ -1,0 +1,73 @@
+{% extends "compare/base.html" %}
+{% block content %}
+
+<h1> Football Player Dataset Information </h1>
+
+<p class="foot"> footballplayerdata.csv <p>
+
+  <p> DUMMY DATA ..... This dataset contains Next Gen Stats tracking data for running plays. You must use features known at the time when the ball is handed off (TimeHandoff) to forecast the yardage gained on that play (PlayId).
+
+Because this is a time-series code competition that will be evaluated on future data, you will receive data and make predictions with a time-series API. This API provides plays in the time order in which they occurred in a game. Refer to the starter notebook here for an example of how to complete a submission.
+
+Note: Before the evaluation period begins, we will be updating the train.csv file to include current season games. Before Stage 2 begins, Kaggle will update the train.csv file to include current-season games through Stage 1. Please take note should you want to retraining to be a part of your model submission.
+
+To deter cheating by looking ahead in time, the API has been compiled and the test data encrypted on disk. While it may be possible, you should not decompile or attempt to read the test set outside of the API, as the encryption keys will change during the live scoring portion of the competition. During stage one, we ask that you respect the spirit of the competition and do not submit predictions that incorporate future information or the ground truth. </p>
+<br>
+
+
+<p>Columns
+Each row in the file corresponds to a single player's involvement in a single play. The dataset was intentionally joined (i.e. denormalized) to make the API simple. All the columns are contained in one large dataframe which is grouped and provided by PlayId.
+</p>
+
+<ul>
+<li>GameId - a unique game identifier</li>
+<li>PlayId - a unique play identifier<
+<li>Team - home or away</li>
+<li>X - player position along the long axis of the field. See figure below.</li>
+<li>Y - player position along the short axis of the field. See figure below.</li>
+<li>S - speed in yards/second</li>
+<li>A - acceleration in yards/second^2</li>
+<li>Dis - distance traveled from prior time point, in yards</li>
+<li>Orientation - orientation of player (deg)</li>
+<li>Dir - angle of player motion (deg)</li>
+<li>NflId - a unique identifier of the player</li>
+<li>DisplayName - player's name</li>
+<li>JerseyNumber - jersey number</li>
+<li>Season - year of the season</li>
+<li>YardLine - the yard line of the line of scrimmage</li>
+<li>Quarter - game quarter (1-5, 5 == overtime)</li>
+<li>GameClock - time on the game clock</li>
+<li>PossessionTeam - team with possession</li>
+<li>Down - the down (1-4)</li>
+<li>Distance - yards needed for a first down</li>
+<li>FieldPosition - which side of the field the play is happening on</li>
+<li>HomeScoreBeforePlay - home team score before play started</li>
+<li>VisitorScoreBeforePlay - visitor team score before play started
+<li>NflIdRusher - the NflId of the rushing player</li>
+<li>OffenseFormation - offense formation</li>
+<li>OffensePersonnel - offensive team positional grouping</li>
+<li>DefendersInTheBox - number of defenders lined up near the line of scrimmage, spanning the width of the offensive line</li>
+<li>DefensePersonnel - defensive team positional grouping</li>
+<li>PlayDirection - direction the play is headed</li>
+<li>TimeHandoff - UTC time of the handoff</li>
+<li>TimeSnap - UTC time of the snap</li>
+<li>Yards - the yardage gained on the play (you are predicting this)</li>
+<li>PlayerHeight - player height (ft-in)</li>
+<li>PlayerWeight - player weight (lbs)</li>
+<li>PlayerBirthDate - birth date (mm/dd/yyyy)</li>
+<li>PlayerCollegeName - where the player attended college</li>
+<li>Position - the player's position (the specific role on the field that they typically play)</li>
+<li>HomeTeamAbbr - home team abbreviation</li>
+<li>VisitorTeamAbbr - visitor team abbreviation</li>
+<li>Week - week into the season</li>
+<li>Stadium - stadium where the game is being played</li>
+<li>Location - city where the game is being player</li>
+<li>StadiumType - description of the stadium environment</li>
+<li>Turf - description of the field surface</li>
+<li>GameWeather - description of the game weather</li>
+<li>Temperature - temperature (deg F)</li>
+<li>Humidity - humidity</li>
+<li>WindSpeed - wind speed in miles/hour</li>
+<li>WindDirection - wind direction</li>
+</ul>
+{% endblock content %}

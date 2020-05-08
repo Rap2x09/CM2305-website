@@ -1,0 +1,36 @@
+{% extends "compare/base.html" %}
+
+{% block content %}
+<script>
+
+$(document).ready(function(){
+  $("input[name=solutionCheckbox]").change(function(){
+    var max= 2;
+    if( $("input[name=solutionCheckbox]:checked").length == max ){
+        $("input[name=solutionCheckbox]").attr('disabled', 'disabled');
+        $("input[name=solutionCheckbox]:checked").removeAttr('disabled');
+    }else{
+         $("input[name=solutionCheckbox]").removeAttr('disabled');
+    }
+  });
+});
+
+</script>
+
+    <h1>Compare Solutions</h1>
+    
+    {% for solution in solutionList %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <input type="checkbox" value="{{ solution.solutionID }}" name="solutionCheckbox"> Solution # {{ solution.solutionID }}
+              <small class="text-muted">{{ solution.dateSubmitted }}</small>
+            </div>
+            <h2>Submitted by: {{ solution.localUser.username }}</h2>
+  <!--          <--/ <p class="article-content">{{ post.content }}</p> -> -->
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+
+<!-- <a class="mr-2" href="{% url 'solution_list' post.solutionID %}"> </a> -->

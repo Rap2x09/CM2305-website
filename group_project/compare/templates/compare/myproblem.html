@@ -1,0 +1,24 @@
+{% extends "compare/base.html" %}
+{% block content %}
+    <div style="margin: 10px 0;border-bottom:1px solid #aaa;">
+    <h1>My Submitted Problems</h1>
+    </div>
+    <div>
+    <table class="col-sm-12 table table-hover">
+        <thead>
+        <tr>
+            <th>My Submitted Problem Title</th>
+            <th width="15%">Detail</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in problem_list %}
+        <tr>
+            <td style="white-space:nowrap;overflow:hidden;text-overflow: ellipsis;width: 630px;display: inline-block">{{ row.title }}</td>
+            <td><a href="{% url 'userProblemStatus' %}">Show</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock content %}

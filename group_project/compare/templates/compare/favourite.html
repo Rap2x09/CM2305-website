@@ -1,0 +1,24 @@
+{% extends "compare/base.html" %}
+{% block content %}
+    <div style="margin: 10px 0;border-bottom:1px solid #aaa;">
+    <h1>My Favourite</h1>
+    </div>
+    <div>
+    <table class="col-sm-12 table table-hover">
+        <thead>
+        <tr>
+            <th>My Submitted Problem Description</th>
+            <th width="15%">Detail</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for row in favourite_list %}
+        <tr>
+            <td style="white-space:nowrap;overflow:hidden;text-overflow: ellipsis;width: 630px;display: inline-block">{{ row.solution }}</td>
+            <td><a href="#">Show</a></td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    </div>
+{% endblock content %}

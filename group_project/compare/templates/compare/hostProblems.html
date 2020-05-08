@@ -1,0 +1,25 @@
+{% extends "compare/base.html" %}
+{% block content %}
+
+        <h3> Problem Specifications:</h3>
+        <br>
+        <h4>Currently Hosting:</h4>
+        <hr class="solid">
+    {% for data in posts %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ data.title }}</a>
+              <small class="text-muted">Submitted by: {{ data.localUser }}</small>
+            </div>
+            <h2><a class="article-title" href="compare/information.html">{{ data.title }}</a></h2>
+            <p class="article-content">{{ data.content }}</p>
+          </div>
+        </article>
+        <hr class="solid">
+
+    {% endfor %}
+
+
+
+{% endblock content %}

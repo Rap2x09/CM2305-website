@@ -1,0 +1,58 @@
+{% extends "compare/base.html" %}
+{% block content %}
+    <div class="select2-container">
+        <div style="margin: 10px 0;border-bottom:1px solid #aaa;">
+            <h1>My Account</h1>
+        </div>
+    <form class="text-muted content-section">
+        <div class="form-group row">
+            <label for="staticUsername" class="col-sm-2 col-form-label col-form-label-lg">Username</label>
+            <div class="col-sm-10">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light">
+                        {{ username.0 }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label for="staticEmail" class="col-sm-2 col-form-label col-form-label-lg">Email</label>
+            <div class="col-sm-10">
+                <ul class="list-group">
+                    <li class="list-group-item list-group-item-light">
+                        {{ email.0 }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </form>
+    <div style="border-bottom:1px solid #aaa;margin: 10px 0;">
+        <h4>Change Password?</h4>
+        {% if error != NULL %}
+            <div class="alert alert-danger">
+                <strong>{{ error }}</strong>
+            </div>
+        {% endif %}
+    </div>
+    <div>
+        <form class="text-muted content-section" method="POST" action="/myaccount/">
+            <div class="form-group row">
+                <input style="display: none" name="id" value="{{ id }}">
+                <label style="margin: 10px 0;" for="OriginalPassword" class="col-sm-4 col-form-label col-form-label-lg">Original Password</label>
+                <div class="input-group-lg">
+                    <input style="margin: 10px 0;width: 465px " class=" list-group-item" type="password" name="Opwd">
+                </div>
+                <label style="margin: 10px 0;" for="NewPassword" class="col-sm-4 col-form-label col-form-label-lg">New Password</label>
+                <div class="input-group-lg">
+                    <input style="margin: 10px 0;width: 465px " class=" list-group-item" type="password" name="Npwd">
+                </div>
+                <label style="margin: 10px 0;" for="ConfirmPassword" class="col-sm-4 col-form-label col-form-label-lg">Confirm Password</label>
+                <div class="input-group-lg">
+                    <input style="margin: 10px 0;width: 465px " class=" list-group-item" type="password" name="Cpwd">
+                </div>
+                <input type="submit" value="Change Password" class="btn-success btn-lg btn-block " onclick="window.location.href='{% url 'compare-home' %}'">
+            </div>
+        </form>
+    </div>
+    </div>
+{% endblock content %}

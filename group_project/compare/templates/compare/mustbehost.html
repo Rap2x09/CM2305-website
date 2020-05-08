@@ -1,0 +1,12 @@
+{% extends "compare/base.html" %}
+{% block content %}
+
+<div class="alert alert-danger">
+  <strong>Error!</strong> You must be a host to access this page, please log in if you are a host.
+</div>
+
+<h2> </h2>
+
+<a type="button" class="btn btn-info" href="{% url 'login' %}" >Back to Home Page</a>
+
+{% endblock content %}

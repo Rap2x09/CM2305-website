@@ -1,0 +1,35 @@
+{% extends "compare/base.html" %}
+{% block content %}
+
+        <h3> Accept/Reject Submitted Problem Specifications:</h3>
+        <br>
+        <h6> For <b>accepted</b> problem specifications <a href="{% url 'accepted' %}">click here</a></h6>
+        <h6> For <b>rejected</b> problem specifications <a href="{% url 'rejected' %}">click here</a></h6>
+        <br>
+        <h4>Pending Problem Specifications:</h4>
+        <p class="text-muted"> Note: When declining problem specifications, they will appear in the 'archived' section.</p>
+        <br>
+
+    {% for post in posts %}
+    <form method="POST">
+
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ post.author }}</a>
+              <small class="text-muted">{{ post.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <p class="article-content">{{ post.content }}</p>
+          </div>
+        </article>
+
+        <input type="submit" class="btn btn-info" value="Accept" name="status">
+        <input type="submit" class="btn btn-info" value="Reject" name="status">   
+        <input type="hidden" name="id" value={{ post.problemID }}></input>
+    <br>
+    <hr class="solid">
+    </form>
+    {% endfor %}
+
+{% endblock content %}

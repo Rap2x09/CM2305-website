@@ -1,0 +1,15 @@
+{% extends "compare/base.html" %}
+{% block content %}
+    {% for data in datasets %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              <a class="mr-2" href="#">{{ data.author }}</a>
+              <small class="text-muted">{{ data.date_posted }}</small>
+            </div>
+            <h2><a class="article-title" href="compare/information.html">{{ data.title }}</a></h2>
+            <p class="article-content">{{ data.content }}</p>
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}

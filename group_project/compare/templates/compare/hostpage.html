@@ -1,0 +1,24 @@
+{% extends "compare/base.html" %}
+{% block content %}
+
+<h1> Comparison Host </h1>
+
+<br>
+
+<div class="container">
+  <a type="button" class="btn btn-info btn-block" href="{% url 'acceptDecline' %}">Accept/Decline Problem Specifications</a>
+  <a type="button" class="btn btn-info btn-block" href="{% url 'hostProblems' %}">My Problem Specifications</a>
+  <br>
+  <br>
+  <a type="button" class="btn btn-info btn-block" href="http://127.0.0.1:8000/admin/">Access the Admin Page to Add Datasets</a>
+</div>
+
+<!-- Current problem specifications that have been added, if added then make it show up on the main page, redirect to admin page in order to add datasets . If deleted put it in an archive, let user know what status of specification is -->
+
+
+<!-- Current Problem specifications that have are being and have been hosted by you -->
+
+<!-- From this page you can click on each of the problem specifications and see the attempts on them and a ranked order on the users who have the best solutions, the solutions can also be avilable for download -->
+
+
+{% endblock content %}

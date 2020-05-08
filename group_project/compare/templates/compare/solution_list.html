@@ -1,0 +1,17 @@
+{% extends "compare/base.html" %}
+{% block content %}
+    {% for solution in solutionList %}
+        <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+              Solution # {{ solution.solutionID }}
+              <small class="text-muted">date submitted: {{ solution.dateSubmitted }}</small>
+            </div>
+            <h2>Submitted by: {{ solution.localUser.username }}</h2>
+  <!--          <--/ <p class="article-content">{{ post.content }}</p> -> -->
+          </div>
+        </article>
+    {% endfor %}
+{% endblock content %}
+
+<!-- <a class="mr-2" href="{% url 'solution_list' post.solutionID %}"> </a> -->

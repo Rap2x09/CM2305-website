@@ -1,0 +1,22 @@
+{% extends 'compare/base.html' %}
+
+{% block content %}
+
+<h1>Problem Details</h1>
+<hr class="solid">
+
+{% for object in problem_list %}
+<br>
+	<h3>{{ object.title }}</h3>
+	<h4> Host Decision: <b>{{ object.status }}</b></h4>
+	<br>
+	<h4>Information</h4>
+	<p>{{ object.problemInfo }}</p>
+	<br>
+	<h4> Evaluation Code </h4>
+	<p>{{ object.evaluationCode }}</p>
+	<hr class="solid">
+
+{% endfor %}
+
+{% endblock content %}
