@@ -1,0 +1,15 @@
+__pycache__/
+venv/
+db.sqlite3
+.project
+*.pyc
+*.pyo
+*~
+X*.py
+*.pydevproject
+*.log
+*.pot
+*.pyc
+*/*/*/__pycache__/
+*/*/__pycache__/
+*/__pycache__/
