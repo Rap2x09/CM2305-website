@@ -27,7 +27,7 @@ class Problem(models.Model):
 class Dataset(models.Model):
     dataID = models.AutoField(primary_key=True)
     dataset = models.FileField(upload_to='datasets/', validators=[validate_file])
-    datasetDesc = models.CharField(max_length=100, verbose_name= 'Dataset Short Description')
+    datasetDesc = models.CharField(max_length=1000, verbose_name= 'Dataset Short Description')
     problem = models.ForeignKey(Problem, on_delete=models.CASCADE)
 
     def __str__(self):
