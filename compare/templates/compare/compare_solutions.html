@@ -32,7 +32,8 @@ $(document).ready(function(){
               <input type="checkbox" value="{{ solution.solutionID }}" name="solutionCheckbox"> Solution # {{ solution.solutionID }}
               <span style="float:right;"><small class="text-muted">{{ solution.dateSubmitted }}</small></span>
             </div>
-            <h2>Submitted by: {{ solution.localUser.username }}</h2>
+            <h1>Submitted by: {{ solution.localUser.username }}</h1>
+            <h2>Solution: <br><br> {{ solution.solutionCode }}</h2>
   <!--          <--/ <p class="article-content">{{ post.content }}</p> -> -->
           </div>
         </article>

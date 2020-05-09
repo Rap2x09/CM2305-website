@@ -129,9 +129,6 @@ def comparisonResult(request):
     return render(request, 'compare/comparison_result.html', {'title': 'Code Comparison'})
 
 
-def code(request):
-    return render(request, 'compare/code.html', {'title': 'Code'})
-
 
 def about(request):
     form = SubmitProbSpecForm()
@@ -191,7 +188,7 @@ def problems(request):
     if request.user.is_authenticated:
         nid = request.user.id
         try:
-            problem_list = Problem.objects.filter(localUser=nid)
+            problem_list = Problem.objects.filter(status='Accept')
         except Problem.DoesNotExist:
             problem_list = None
         return render(request, 'compare/myproblem.html', {'problem_list': problem_list})

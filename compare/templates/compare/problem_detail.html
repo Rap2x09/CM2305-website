@@ -2,12 +2,23 @@
 
 {% block content %}
 <!-- This needs changing, it is wrong and not linked to anything  -->
-<h1>PROBLEM DETAILS</h1>
 
-<div class="">
-	<h2>{{ object.title }}</h2>
+<div class="container">
+	<h1>Problem Details</h1>
+    <hr class="solid">
+
+	<h3>{{ object.title }}</h3> 
+	<br>
+	<p><b>Description:</b></p>
 	<p>{{ object.problemInfo }}</p>
-	<p>{{ object.evaluationCode }}</p>
+	<br>
+	<p><b>Data:</b></p>
+	{{object.evaluationCode}}
+	<br><br>
+	<hr class="solid">
+	<a href="{% url 'submit_solution' object.problemID %}">Submit Solution #{{ object.problemID }}</a>
 </div>
-	<a href="{% url 'submit_solution' object.problemID %}">Submit Solution</a>
+
+<br><br><br>
+
 {% endblock content %}
