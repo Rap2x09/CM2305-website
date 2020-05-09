@@ -4,10 +4,23 @@
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.localUser.username }}</a>
-              <small class="text-muted">{{ post.dateSubmitted }}</small>
+              Submitted by: <a class="mr-2" href="#"> {{ post.localUser.username }}</a>
+              <span style="float:right;"> 
+                <small class="text-muted">Date posted: {{ post.dateSubmitted }}</small>
+              </span>
             </div>
+                          <span style="float:right;">
+                submitted solutions: 
+                {% if post.solution_set.count > 0 %} 
+                <a href="{% url 'solution_list' post.problemID %}"> 
+                {{ post.solution_set.count }}
+                </a>
+              {% else %}
+                {{ post.solution_set.count }}
+              {% endif %}
+              </span>
             <h2><a href="{% url 'problem_detail' post.problemID %}">{{ post.title }}</a></h2>
+
             <p class="article-content">{{ post.content }}</p>
           </div>
         </article>

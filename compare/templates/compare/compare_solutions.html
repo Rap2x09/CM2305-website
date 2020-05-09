@@ -9,8 +9,10 @@ $(document).ready(function(){
     if( $("input[name=solutionCheckbox]:checked").length == max ){
         $("input[name=solutionCheckbox]").attr('disabled', 'disabled');
         $("input[name=solutionCheckbox]:checked").removeAttr('disabled');
+        $('input[type="submit"]').removeAttr('disabled');
     }else{
          $("input[name=solutionCheckbox]").removeAttr('disabled');
+         $('input[type="submit"]').attr('disabled', 'disabled');
     }
   });
 });
@@ -18,13 +20,17 @@ $(document).ready(function(){
 </script>
 
     <h1>Compare Solutions</h1>
-    
+            <div class="form-group">
+               <a href="{% url 'comparison_result' %}"> 
+                <input class="btn btn-outline-info" type="submit" disabled="disabled" value="Compare">
+              </a>
+            </div>
     {% for solution in solutionList %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
               <input type="checkbox" value="{{ solution.solutionID }}" name="solutionCheckbox"> Solution # {{ solution.solutionID }}
-              <small class="text-muted">{{ solution.dateSubmitted }}</small>
+              <span style="float:right;"><small class="text-muted">{{ solution.dateSubmitted }}</small></span>
             </div>
             <h2>Submitted by: {{ solution.localUser.username }}</h2>
   <!--          <--/ <p class="article-content">{{ post.content }}</p> -> -->

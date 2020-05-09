@@ -1,23 +1,30 @@
 {% extends "compare/base.html" %}
 {% block content %}
-    {% for post in posts %}
+
+{% for post in posts %}
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.dateSubmitted }}</small>
+              Submitted by: <a class="mr-2" href="#"> {{ post.localUser.username }}</a>
+              <span style="float:right;"> 
+                <small class="text-muted">Date posted: {{ post.dateSubmitted }}</small>
+              </span>
             </div>
-            <h2><a class="article-title" href="{% url 'problem_detail' post.problemID %}">{{ post.title }}</a></h2>
-            <p class="article-content">
-              {% if post.solution_set.count > 0 %} 
+                          <span style="float:right;">
+                submitted solutions: 
+                {% if post.solution_set.count > 0 %} 
                 <a href="{% url 'compare_solutions' post.problemID %}"> 
                 {{ post.solution_set.count }}
                 </a>
               {% else %}
                 {{ post.solution_set.count }}
               {% endif %}
-            </p>
+              </span>
+            <h2><a href="{% url 'problem_detail' post.problemID %}">{{ post.title }}</a></h2>
+
+            <p class="article-content">{{ post.content }}</p>
           </div>
         </article>
     {% endfor %}
+
 {% endblock content %}

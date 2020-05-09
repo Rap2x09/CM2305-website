@@ -125,6 +125,10 @@ class CompareSolutionsView(LoginRequiredMixin, ListView):
         # self.problemID = get_object_or_404(Problem, )
         return Solution.objects.filter(problem_id = problemID)
 
+def comparisonResult(request):
+    return render(request, 'compare/comparison_result.html', {'title': 'Code Comparison'})
+
+
 def code(request):
     return render(request, 'compare/code.html', {'title': 'Code'})
 
