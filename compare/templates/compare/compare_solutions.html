@@ -29,11 +29,12 @@ $(document).ready(function(){
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <input type="checkbox" value="{{ solution.solutionID }}" name="solutionCheckbox"> Solution # {{ solution.solutionID }}
+              <input type="checkbox" value="{{ solution.solutionID }}" name="solutionCheckbox"> 
+              <a href="#"> Solution # {{ solution.solutionID }}</a>
               <span style="float:right;"><small class="text-muted">{{ solution.dateSubmitted }}</small></span>
             </div>
             <h3>Submitted by: {{ solution.localUser.username }}</h3>
-            <p>Solution: <br><br> {{ solution.solutionCode }}</p>
+<!--             <p>Solution: <br><br> {{ solution.solutionCode }}</p> -->
   <!--          <--/ <p class="article-content">{{ post.content }}</p> -> -->
           </div>
         </article>
