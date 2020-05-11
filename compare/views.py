@@ -188,7 +188,7 @@ def problems(request):
     if request.user.is_authenticated:
         nid = request.user.id
         try:
-            problem_list = Problem.objects.filter(status='Accept')
+            problem_list = Problem.objects.filter(localUser=nid)
         except Problem.DoesNotExist:
             problem_list = None
         return render(request, 'compare/myproblem.html', {'problem_list': problem_list})
