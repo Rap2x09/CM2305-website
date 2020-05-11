@@ -6,8 +6,8 @@ import time
 #import timeit
 #import profile
 
-code1 = 'C:\\Computer Science\\COMPSCI_Y2\\NEW WEBSITE\\CM2305-website\\test2.py'
-code2 = 'C:\\Computer Science\\COMPSCI_Y2\\NEW WEBSITE\\CM2305-website\\test3.py'
+code1 = 'test2.py'
+code2 = 'test3.py'
 
 codes = [code1, code2]
 codetime = []
