@@ -10,7 +10,7 @@
   <a type="button" class="btn btn-info btn-block" href="{% url 'hostProblems' %}">My Problem Specifications</a>
   <br>
   <br>
-  <a type="button" class="btn btn-info btn-block" href="http://127.0.0.1:8000/admin/">Access the Admin Page to Add Datasets</a>
+  <a type="button" class="btn btn-info btn-block" href="{% url 'admin:index' %}">Access the Admin Page to Add Datasets</a>
 </div>
 
 <!-- Current problem specifications that have been added, if added then make it show up on the main page, redirect to admin page in order to add datasets . If deleted put it in an archive, let user know what status of specification is -->

@@ -16,7 +16,11 @@
 	{{object.evaluationCode}}
 	<br><br>
 	<hr class="solid">
-	<a href="{% url 'submit_solution' object.problemID %}">Submit Solution #{{ object.problemID }}</a>
+	<span style="float:right;">
+	<a href="{% url 'submit_solution' object.problemID %}">
+		<input class="btn btn-outline-info" type="submit" value="Submit Solution">
+	</a>
+	</span>
 </div>
 
 <br><br><br>

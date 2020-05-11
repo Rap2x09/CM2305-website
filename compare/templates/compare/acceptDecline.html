@@ -12,23 +12,32 @@
 
     {% for post in posts %}
     <form method="POST">
-
         <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ post.author }}</a>
-              <small class="text-muted">{{ post.date_posted }}</small>
+              <small class="text-muted">Submitted by: </small> <a class="mr-2" href="#"> {{ post.localUser.username }}</a>
+              <span style="float:right;"> 
+                <small class="text-muted">Date submitted: {{ post.dateSubmitted }}</small>
+              </span>
             </div>
-            <h2><a class="article-title" href="#">{{ post.title }}</a></h2>
+            <h2><a class="article-title" href="{% url 'problem_detail' post.problemID %}">{{ post.title }}</a></h2>
+
+            <span style="float:right;">
+
+            <input type="submit" class="btn btn-info" value="Accept" name="status">
+            <input type="submit" class="btn btn-info" value="Reject" name="status">   
+            <input type="hidden" name="id" value={{ post.problemID }}></input>
+
+        </span>
+
             <p class="article-content">{{ post.content }}</p>
           </div>
         </article>
 
-        <input type="submit" class="btn btn-info" value="Accept" name="status">
-        <input type="submit" class="btn btn-info" value="Reject" name="status">   
-        <input type="hidden" name="id" value={{ post.problemID }}></input>
-    <br>
-    <hr class="solid">
+        {% empty %}
+        <h2 class="center"> No Problem Specifications Pending </h1>
+<!--     <br>
+    <hr class="solid"> -->
     </form>
     {% endfor %}
 

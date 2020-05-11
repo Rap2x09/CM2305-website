@@ -218,7 +218,7 @@ def hostpage(request):
 def acceptDecline(request):
     if request.user.is_superuser:
         context = {
-        'posts': Problem.objects.all()
+        'posts': Problem.objects.all().filter(status='Pending')
         }
         if request.method == 'POST':
             post = Problem.objects.get(problemID=request.POST.get('id'))
