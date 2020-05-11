@@ -1,4 +1,6 @@
 import pymysql
+import sys
+from subprocess import run,PIPE
 from django.contrib.auth import logout
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
@@ -126,7 +128,9 @@ class CompareSolutionsView(LoginRequiredMixin, ListView):
         return Solution.objects.filter(problem_id = problemID)
 
 def comparisonResult(request):
-    return render(request, 'compare/comparison_result.html', {'title': 'Code Comparison'})
+    out= run([sys.executable,'C:\\Computer Science\\COMPSCI_Y2\\NEW WEBSITE\\CM2305-website\\test.py'],shell=False,stdout=PIPE)
+    print(out)
+    return render(request, 'compare/comparison_result.html', {'data1':out.stdout}, {'title': 'Code Comparison'})
 
 
 

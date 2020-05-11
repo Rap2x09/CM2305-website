@@ -3,6 +3,12 @@
 
 <h1 class="center"> COMPARISON RESULT </h1>
 
-
+<form action="/comparisonResult/" method="post">
+{% csrf_token %}
+Result:
+<br>
+<h3>{{data1}}</h3>
+<br><br>
+</form>
 
 {% endblock content %}
